@@ -159,10 +159,10 @@
     function to_page(pn) {
         $.ajax({
             type: "GET",
-            url: "/book/list",
+            url: "${pageContext.request.contextPath}/book/list",
             data: "pn=" + pn,
             error: function (request) {
-                alert("Connection error");
+                alert("连接异常，请F12调试");
             },
             success: function (result) {
 
@@ -273,9 +273,10 @@
     function getBookTags() {
         $.ajax({
                 type: "GET",
-                url: "/category",
+                url: "${pageContext.request.contextPath}/category",
                 data: null,
                 error: function (request) {
+                    alert("连接异常，请F12调试");
                 },
                 success: function (result) {
                     if (result.code == 200) {
@@ -295,10 +296,10 @@
     $("#book_save_btn").click(function () {
         $.ajax({
             type: "POST",
-            url: "/book",
+            url: "${pageContext.request.contextPath}/book",
             data: $("#bookModal form").serialize(),
             error: function (request) {
-                alert("Connection error");
+                alert("连接异常，请F12调试");
             },
             success: function (result) {
                 alert(result.message);
@@ -321,10 +322,10 @@
     function getBook(bookuid) {
         $.ajax({
             type: "GET",
-            url: "/book/" + bookuid,
+            url: "${pageContext.request.contextPath}/book/" + bookuid,
             data: null,
             error: function (request) {
-                alert("Connection error");
+                alert("连接异常，请F12调试");
             },
             success: function (result) {
                 var book = result.data.book;
@@ -338,9 +339,10 @@
 
                 $.ajax({
                         type: "GET",
-                        url: "/category",
+                        url: "${pageContext.request.contextPath}/category",
                         data: null,
                         error: function (request) {
+                            alert("连接异常，请F12调试");
                         },
                         success: function (result) {
                             if (result.code == 200) {
@@ -366,10 +368,10 @@
     $("#book_update_btn").click(function () {
         $.ajax({
             type: "PUT",
-            url: "/book",
+            url: "${pageContext.request.contextPath}/book",
             data: $("#bookUpdateModal form").serialize(),
             error: function (request) {
-                alert("Connection error");
+                alert("连接异常，请F12调试");
             },
             success: function (result) {
                 alert(result.message);
@@ -391,10 +393,10 @@
     function del_book(uids) {
         $.ajax({
             type: "DELETE",
-            url: "/book/" + uids,
+            url: "${pageContext.request.contextPath}/book/" + uids,
             data: null,
             error: function (request) {
-                alert("Connection error");
+                alert("连接异常，请F12调试");
             },
             success: function (result) {
                 alert(result.message);
@@ -406,10 +408,10 @@
     function setCategory(uid, index) {
         $.ajax({
             type: "GET",
-            url: "/category/" + uid,
+            url: "${pageContext.request.contextPath}/category/" + uid,
             data: null,
             error: function (request) {
-                alert("Connection error");
+                alert("连接异常，请F12调试");
             },
             success: function (result) {
                 if (result.code == 200) {

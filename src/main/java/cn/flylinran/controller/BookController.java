@@ -157,6 +157,6 @@ public class BookController {
     @ExceptionHandler
     @ResponseBody
     public Msg exp(Exception ex) {
-        return Msg.fail().setMessage("出现异常了");
+        return Msg.fail().setMessage("出现异常了").add("ex", ex.getMessage());
     }
 }
